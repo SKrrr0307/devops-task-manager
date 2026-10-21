@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DevOps Task Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>DevOps Task Manager</h1>
+        <p>Docker • Node.js • PostgreSQL</p>
+    </header>
+
+    <main>
+
+        <section class="task-section">
+
+            <h2>Tasks</h2>
+
+            <div id="loading">
+                Loading tasks...
+            </div>
+
+            <div id="error"></div>
+
+            <table id="taskTable">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Task</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="taskList">
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>DevOps Task Manager - Project #2</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
