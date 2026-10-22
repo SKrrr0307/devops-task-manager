@@ -21,26 +21,26 @@ pipeline {
 	
 	stage('Verify Docker') {
 	    steps {
-		sh ```
+		sh '''
 		    docker --version
 		    docker info > /dev/null
-		```
+		'''
 	    }
 
 	}
 	
 	stage('Build Frontend Image') {
 	    steps {
-		sh ```
+		sh '''
 		    docker build -t ${FRONTEND_IMAGE}:${IMAGE_TAG} ./frontend
-		```
+		'''
 	    }
 	}
 	stage('Build Backend Image') {
             steps {
-                sh ```
+                sh '''
                     docker build -t ${BACKEND_IMAGE}:${IMAGE_TAG} ./backend
-                ```
+                '''
             }
         }
 
