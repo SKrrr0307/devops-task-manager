@@ -1,0 +1,9 @@
+services:
+
+  backend:
+    image: skrrr0307/devops-task-manager-backend:${IMAGE_TAG:?IMAGE_TAG is required}
+    pull_policy: always
+
+  frontend:
+    image: skrrr0307/devops-task-manager-frontend:${IMAGE_TAG:?IMAGE_TAG is required}
+    pull_policy: always
