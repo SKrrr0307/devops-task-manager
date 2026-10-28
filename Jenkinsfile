@@ -70,11 +70,54 @@ pipeline {
                 }
             }
         }
+	stage('Deploy Application') {
+	    steps {
+		sh '''
+		    set -eu
+
+		    DEPLOY_DIR=/home/shubham/devops/devops-task-manager
+
+		    cd "$DEPLOY_DIR"
+
+		    echo "Deploying Task Manager images with tag: ${IMAGE_TAG}"
+
+		    docker compose \
+		      -p devops-task-manager \
+		      -f docker-compose.yml \
+                      -f docker-compose.deploy.yml \
+                      config --quiet
+
+		    docker compose \
+		      -p devops-task-manager \
+		      -f docker-compose.yml \
+                      -f docker-compose.deploy.yml \
+		      pull backend frontend
+
+		    echo "Updating Backend..."
+
+		    docker compose \
+		      -p devops-task-manager \
+		      -f docker-compose.yml \
+		      -f docker-compose.deploy.yml \
+		      up -d --no-deps --no-build --wait --wait-timeout 120 backend
+
+		    echo "Backend is Healthy. Updating frontend... "
+
+		    docker compose \
+		      -p devops-task-manager \
+		      -f docker-compose.yml \
+		      -f docker-compose.deploy.yml \
+		      up -d --no-deps --no-build --wait --wait-timeout 120 frontend
+
+		    echo "Frontend and backend deployment successful."
+		'''
+	    }
+	}
     }
     
     post {
         success {
-            echo 'SUCCESS: Frontend and backend images pushed to Docker Hub!'
+            echo 'SUCCESS: Task Manager images built, pushed, and deployed!'
         }
 
         failure {
