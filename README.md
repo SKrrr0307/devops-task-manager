@@ -554,23 +554,26 @@ The following functionality has been successfully tested:
 
 ## 14. Project Screenshots
 
-Screenshots can be added to demonstrate:
+### 1. Task Manager Application
 
-1. Task Manager frontend
-2. Jenkins successful pipeline
-3. Docker containers running and healthy
-4. Docker Hub image repositories
-5. GitHub webhook delivery
+![Task Manager Application](screenshots/task-manager-ui.png)
 
-Screenshots should be stored in a dedicated `screenshots/` directory.
+### 2. Jenkins CI/CD Pipeline
 
-Example:
-
-```markdown
 ![Jenkins Pipeline](screenshots/jenkins-pipeline.png)
-```
 
-Only add screenshot links after the corresponding images have been uploaded.
+### 3. Docker Containers
+
+![Docker Containers](screenshots/docker-containers.png)
+
+### 4. Docker Hub Images
+
+![Docker Hub Images](screenshots/dockerhub-images1.png)
+![Docker Hub Images](screenshots/dockerhub-images2.png)
+
+### 5. GitHub Webhook Integration
+
+![GitHub Webhook](screenshots/github-webhook.png)
 
 ## 15. Future Improvements
 
